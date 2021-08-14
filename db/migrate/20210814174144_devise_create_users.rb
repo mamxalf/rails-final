@@ -2,10 +2,15 @@
 
 class DeviseCreateUsers < ActiveRecord::Migration[6.1]
   def change
-    create_table :users do |t|
+    create_table :users, id: :uuid do |t|
       ## Database authenticatable
+      t.string :full_name, null: false, default: ''
       t.string :email,              null: false, default: ""
+      t.text   :address, null: false, default: ''
       t.string :encrypted_password, null: false, default: ""
+
+      ## Polymorphic
+      t.references :roleable, polymorphic: true
 
       ## Recoverable
       t.string   :reset_password_token
