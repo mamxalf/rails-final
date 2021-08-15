@@ -9,9 +9,8 @@ class DeviseCreateUsers < ActiveRecord::Migration[6.1]
       t.text   :address, null: false, default: ''
       t.string :encrypted_password, null: false, default: ""
 
-      ## Polymorphic
-      t.uuid   :roleable_id
-      t.string :roleable_type
+      # extra
+      t.jsonb :extra, default: {role: 'student'}
 
       ## Recoverable
       t.string   :reset_password_token
@@ -46,6 +45,5 @@ class DeviseCreateUsers < ActiveRecord::Migration[6.1]
     add_index :users, :reset_password_token, unique: true
     # add_index :users, :confirmation_token,   unique: true
     # add_index :users, :unlock_token,         unique: true
-    add_index :users, [:roleable_id, :roleable_type]
   end
 end

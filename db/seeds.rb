@@ -5,14 +5,11 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+User.where(email: 'admin@admin.com').destroy_all
 
-Admin.destroy_all
-User.destroy_all
-
-super_admin = Admin.create
-user_super_admin = User.new(full_name: 'Super Admin', email: 'admin@admin.com', address: 'Mburi Sekolah',password: 'admin123', password_confirmation: 'admin123', roleable_type: 'Admin', roleable_id: super_admin.id)
-unless user_super_admin.save
-  return p user_super_admin.errors.full_messages
+super_admin = User.new(full_name: 'Super Admin', email: 'admin@admin.com', address: 'Mburi Sekolah',password: 'admin123', password_confirmation: 'admin123', extra: {role: 'admin'})
+unless super_admin.save
+  return p super_admin.errors.full_messages
 end
-p user_super_admin.full_name if User.find_by(id: user_super_admin.id).present?
+p super_admin.full_name if User.find_by(id: super_admin.id).present?
 
