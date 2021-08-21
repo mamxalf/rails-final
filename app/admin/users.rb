@@ -6,7 +6,7 @@ ActiveAdmin.register User do
   #
   # Uncomment all parameters which should be permitted for assignment
   #
-  permit_params :full_name, :email, :address, :password, :password_confirmation, :extra
+  permit_params :full_name, :email, :address, :password, :password_confirmation, extra: :role
   #
   # or
   #
@@ -27,6 +27,16 @@ ActiveAdmin.register User do
     actions
   end
 
+  show do
+    attributes_table do
+      row :full_name
+      row :email
+      row :address
+      row :extra
+      row :created_at
+    end
+  end
+
   filter :full_name
   filter :email
   filter :address
@@ -40,7 +50,7 @@ ActiveAdmin.register User do
       f.input :password_confirmation
       f.input :address
       f.inputs name: 'Extra', for: :extra do |key|
-        key.input :role, require: false, input_html: { value: user.extra['role'] }
+        key.input :role, require: true, label: 'Role', as: :select, collection: ['student', 'teacher']
       end
     end
     f.actions
