@@ -70,8 +70,8 @@ ActiveRecord::Schema.define(version: 2021_08_21_172744) do
     t.uuid "classroom_id", null: false
     t.uuid "room_id", null: false
     t.string "day"
-    t.datetime "start"
-    t.datetime "finish"
+    t.time "start"
+    t.time "finish"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["classroom_id"], name: "index_schedules_on_classroom_id"

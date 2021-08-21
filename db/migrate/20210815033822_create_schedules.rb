@@ -5,8 +5,8 @@ class CreateSchedules < ActiveRecord::Migration[6.1]
       t.references :classroom, null: false, foreign_key: true, type: :uuid
       t.references :room, null: false, foreign_key: true, type: :uuid
       t.string :day
-      t.datetime :start
-      t.datetime :finish
+      t.time :start
+      t.time :finish
 
       t.timestamps
     end

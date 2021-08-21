@@ -23,8 +23,12 @@ ActiveAdmin.register Schedule do
     column :classroom
     column :room
     column :day
-    column :start
-    column :finish
+    column :start do |f|
+      f.start.strftime('%H:%M')
+    end
+    column :finish do |f|
+      f.finish.strftime('%H:%M')
+    end
     actions
   end
 
