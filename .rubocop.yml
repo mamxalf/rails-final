@@ -1113,7 +1113,7 @@ Style/ClassVars:
 Metrics/BlockLength:
 #  Enabled: false
   CountComments: false
-  Max: 5
+  Max: 15
   IgnoredMethods:
     - context
     - describe
@@ -1124,6 +1124,7 @@ Metrics/BlockLength:
     - draw
     - configure
     - group
+    - ActiveAdmin.register
 
 Metrics/MethodLength:
 #  Enabled: false

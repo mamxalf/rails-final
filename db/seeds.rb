@@ -5,11 +5,12 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
-User.where(email: 'admin@admin.com').destroy_all
+# User.where(email: 'admin@admin.com').destroy_all
+#
+# super_admin = User.new(full_name: 'Super Admin', email: 'admin@admin.com', address: 'Mburi Sekolah',password: 'admin123', password_confirmation: 'admin123', extra: {role: 'admin'})
+# unless super_admin.save
+#   return p super_admin.errors.full_messages
+# end
+# p super_admin.full_name if User.find_by(id: super_admin.id).present?
 
-super_admin = User.new(full_name: 'Super Admin', email: 'admin@admin.com', address: 'Mburi Sekolah',password: 'admin123', password_confirmation: 'admin123', extra: {role: 'admin'})
-unless super_admin.save
-  return p super_admin.errors.full_messages
-end
-p super_admin.full_name if User.find_by(id: super_admin.id).present?
-
+AdminUser.create!(full_name: 'Super Admin',email: 'admin@admin.com', password: 'password123', password_confirmation: 'password123') if Rails.env.development?
