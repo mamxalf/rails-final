@@ -34,6 +34,11 @@ ActiveAdmin.register User do
       row :address
       row :extra
       row :created_at
+      table_for user.courses do
+        column 'Courses' do |course|
+          link_to course.title, [:admin, course]
+        end
+      end
     end
   end
 
