@@ -15,4 +15,19 @@ ActiveAdmin.register Classroom do
   #   permitted << :other if params[:action] == 'create' && current_user.admin?
   #   permitted
   # end
+
+  index do
+    selectable_column
+    index_column
+    column :name
+    column :created_at
+    column :schedules do |classroom|
+      table_for classroom.schedules do
+        column 'Info' do |field|
+          "#{field.day} - #{field.start}"
+        end
+      end
+    end
+    actions
+  end
 end

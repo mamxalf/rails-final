@@ -16,14 +16,26 @@ ActiveAdmin.register Schedule do
   #   permitted
   # end
 
+  index do
+    selectable_column
+    index_column
+    column :course
+    column :classroom
+    column :room
+    column :day
+    column :start
+    column :finish
+    actions
+  end
+
   form do |f|
     f.inputs do
       f.input :course_id, require: true, as: :select, collection: Course.all.map { |field| [field.title, field.id] }
       f.input :classroom_id, require: true, as: :select, collection: Classroom.all.map { |field| [field.name, field.id] }
       f.input :room_id, require: true, as: :select, collection: Room.all.map { |field| [field.code, field.id] }
       f.input :day, require: true, as: :select, collection: ['senin', 'selasa', 'rabu', 'kamis', "jum'at"], include_blank: false
-      f.input :start, require: true, as: :date_time_picker
-      f.input :finish, require: true, as: :date_time_picker
+      f.input :start, require: true, as: :time_picker
+      f.input :finish, require: true, as: :time_picker
     end
     f.actions
   end
