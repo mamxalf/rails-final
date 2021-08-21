@@ -104,8 +104,6 @@ ActiveRecord::Schema.define(version: 2021_08_21_172744) do
     t.text "address", default: "", null: false
     t.string "encrypted_password", default: "", null: false
     t.jsonb "extra", default: {"role"=>"student"}
-    t.uuid "roleable_id"
-    t.string "roleable_type"
     t.string "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
@@ -113,7 +111,6 @@ ActiveRecord::Schema.define(version: 2021_08_21_172744) do
     t.datetime "updated_at", precision: 6, null: false
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
-    t.index ["roleable_id", "roleable_type"], name: "index_users_on_roleable_id_and_roleable_type"
   end
 
   create_table "validation_absents", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
