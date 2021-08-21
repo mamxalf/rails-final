@@ -55,7 +55,7 @@ ActiveAdmin.register User do
       f.input :password_confirmation
       f.input :address
       f.inputs name: 'Extra', for: :extra do |key|
-        key.input :role, require: true, label: 'Role', as: :select, collection: ['student', 'teacher']
+        key.input :role, require: true, label: 'Role', as: :select, collection: ['teacher', 'student'], include_blank: false
       end
     end
     f.actions
