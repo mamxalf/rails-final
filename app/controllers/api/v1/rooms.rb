@@ -6,7 +6,8 @@ class Api::V1::Rooms < Grape::API
   resource :rooms do
     desc 'Get All Rooms'
     get '/', serializer: RoomSerializer do
-      Room.all
+      rooms = Room.all
+      RoomSerializer.new(rooms).serializable_hash
     end
 
     desc 'Get Room by ID'

@@ -77,8 +77,9 @@ gem 'grape'
 gem 'grape-swagger'
 # gem 'grape-swagger-rails'
 gem 'grape-swagger-rails'
-# gem 'grape-active_model_serializers'
-gem 'grape-active_model_serializers'
 
 # CORS
 gem 'rack-cors'
+
+# Serializer
+gem 'jsonapi-serializer'
