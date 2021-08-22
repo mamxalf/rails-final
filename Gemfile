@@ -69,3 +69,16 @@ gem 'devise', '~> 4.7.3'
 gem 'activeadmin'
 # gem 'active_admin_datetimepicker'
 gem 'active_admin_datetimepicker'
+
+# Service ~> Grape
+# gem 'grape'
+gem 'grape'
+# gem 'grape-swagger'
+gem 'grape-swagger'
+# gem 'grape-swagger-rails'
+gem 'grape-swagger-rails'
+# gem 'grape-active_model_serializers'
+gem 'grape-active_model_serializers'
+
+# CORS
+gem 'rack-cors'

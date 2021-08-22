@@ -1125,6 +1125,7 @@ Metrics/BlockLength:
     - configure
     - group
     - ActiveAdmin.register
+    - included
 
 Metrics/MethodLength:
 #  Enabled: false
