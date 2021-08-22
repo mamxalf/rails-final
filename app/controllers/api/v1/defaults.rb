@@ -1,5 +1,7 @@
 # frozen_string_literal: true
 
+require 'grape-active_model_serializers'
+
 module Api
   module V1
     module Defaults
@@ -10,6 +12,9 @@ module Api
         version 'v1', using: :path
         default_format :json
         format :json
+
+        formatter :json, Grape::Formatter::ActiveModelSerializers
+        error_formatter :json, Grape::Formatter::ActiveModelSerializers
 
         helpers do
           def permitted_params

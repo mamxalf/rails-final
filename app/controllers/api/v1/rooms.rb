@@ -5,9 +5,13 @@ class Api::V1::Rooms < Grape::API
 
   resource :rooms do
     desc 'Get All Rooms'
-    get '/', serializer: RoomSerializer do
+    get do
       rooms = Room.all
-      RoomSerializer.new(rooms).serializable_hash
+      {
+        message: 'Rooms list fetched successfully',
+        status: 'success',
+        data: ActiveModelSerializers::SerializableResource.new(rooms, each_serializer: RoomSerializer)
+      }
     end
 
     desc 'Get Room by ID'
@@ -16,6 +20,15 @@ class Api::V1::Rooms < Grape::API
     end
     get ':id' do
       Room.find_by(id: params[:id])
+    end
+
+    desc 'Create Room'
+    params do
+      optional :name, type: String, desc: 'Room Name'
+      optional :code, type: String, desc: 'Code Room'
+    end
+    post do
+      Room.new(params)
     end
   end
 end

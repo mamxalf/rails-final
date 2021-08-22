@@ -82,4 +82,5 @@ gem 'grape-swagger-rails'
 gem 'rack-cors'
 
 # Serializer
-gem 'jsonapi-serializer'
+# gem 'active_model_serializers', '~> 0.10.0'
+gem 'grape-active_model_serializers'

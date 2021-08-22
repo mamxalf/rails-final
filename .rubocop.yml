@@ -1126,6 +1126,7 @@ Metrics/BlockLength:
     - group
     - ActiveAdmin.register
     - included
+    - resource
 
 Metrics/MethodLength:
 #  Enabled: false

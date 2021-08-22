@@ -9,7 +9,7 @@ class Api::V1::Base < Grape::API
   add_swagger_documentation(
     api_version:             'v1',
     hide_documentation_path: true,
-    mount_path:              '/api/v1/swagger_doc',
+    mount_path:              '/api/v1/doc',
     hide_format:             true
   )
 end
